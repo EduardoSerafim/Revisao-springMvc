@@ -1,4 +1,4 @@
-package br.com.fiap.revisaospringmvc.controller;
+package br.com.fiap.revisaospringmvc.revisaospringmvc.controller;
 
 import javax.servlet.http.HttpServletRequest;
 

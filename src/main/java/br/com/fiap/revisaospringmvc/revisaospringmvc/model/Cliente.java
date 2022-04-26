@@ -1,4 +1,4 @@
-package br.com.fiap.revisaospringmvc.model;
+package br.com.fiap.revisaospringmvc.revisaospringmvc.model;
 
 public class Cliente {
 

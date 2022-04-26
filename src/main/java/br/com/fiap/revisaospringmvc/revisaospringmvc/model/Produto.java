@@ -1,11 +1,23 @@
-package br.com.fiap.revisaospringmvc.model;
+package br.com.fiap.revisaospringmvc.revisaospringmvc.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Produto {
 
-	private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(nullable = false)
 	private String nome;
+	
 	private Integer quantidade;
 	private double valor;
 	
@@ -13,8 +25,7 @@ public class Produto {
 		
 	}
 	
-	public Produto(long id, String nome, Integer quantidade, double valor) {
-		super();
+	public Produto(Long id, String nome, Integer quantidade, double valor) {
 		this.id = id;
 		this.nome = nome;
 		this.quantidade = quantidade;
@@ -22,10 +33,10 @@ public class Produto {
 	}
 
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNome() {

@@ -1,4 +1,4 @@
-package br.com.fiap.revisaospringmvc.controller;
+package br.com.fiap.revisaospringmvc.revisaospringmvc.controller;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.fiap.revisaospringmvc.model.Cliente;
+import br.com.fiap.revisaospringmvc.revisaospringmvc.model.Cliente;
 
 @Controller
 public class ClienteController {
