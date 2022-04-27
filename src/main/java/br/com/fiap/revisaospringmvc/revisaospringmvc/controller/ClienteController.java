@@ -2,9 +2,12 @@ package br.com.fiap.revisaospringmvc.revisaospringmvc.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,18 +36,21 @@ public class ClienteController {
 	}
 	
 	@GetMapping("/clientes/criar")
-	public ModelAndView criar() {
+	public ModelAndView criar(ClienteDto cliente) {
 		ModelAndView modelView = new ModelAndView("clientes/criar");
 		return modelView;
 	}
 	
 	@PostMapping("clientes")
-	public String salvar(ClienteDto cliente) {
-		Cliente clienteEntity = modelMapper.map(cliente, Cliente.class);
+	public ModelAndView salvar(@Valid ClienteDto cliente, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			return new ModelAndView("clientes/criar");
+		}
 		
+		Cliente clienteEntity = modelMapper.map(cliente, Cliente.class);
 		clienteRepository.save(clienteEntity);
 		
-		return "redirect:/clientes";
+		return new ModelAndView("redirect:/clientes");
 	}
 	
 	

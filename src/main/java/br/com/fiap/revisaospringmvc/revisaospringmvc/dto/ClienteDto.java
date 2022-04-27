@@ -1,12 +1,23 @@
 package br.com.fiap.revisaospringmvc.revisaospringmvc.dto;
 
+import javax.validation.constraints.NotBlank;
 
+import com.sun.istack.NotNull;
 
 public class ClienteDto {
 	
 	private long id;
+	
+	@NotNull
+	@NotBlank
 	private String nome;
+	
+	@NotNull
+	@NotBlank
 	private String documento;
+	
+	@NotNull
+	@NotBlank
 	private String endereco;
 	
 	public ClienteDto() {

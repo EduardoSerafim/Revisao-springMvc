@@ -1,12 +1,21 @@
 package br.com.fiap.revisaospringmvc.revisaospringmvc.dto;
 
-
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class ProdutoDto {
 
 	private long id;
+	
+	@NotBlank
+	@NotNull
 	private String nome;
+	
 	private Integer quantidade;
+	
+	@DecimalMin(value="0.0")
+	@NotNull
 	private double valor;
 	
 	public ProdutoDto() {

@@ -17,19 +17,20 @@
         <hr>
         <a type="button" href="../produtos" class="btn btn-primary">Listar produto</a>
 
-        <form action="/produtos" method="POST">
+        <form th:object="${produtoDto}" action="/produtos" method="POST">
             <div class="row">
                 <div class="col-md-6">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Nome</span>
-                        <input type="text" name="nome" class="form-control">
+                        <input type="text" name="nome" th:errorclass="is-invalid" th:field="*{nome}" id="nome" class="form-control">
+                        <div class="invalid-feedback" th:errors="*{nome}"></div>
                     </div>
                 </div>
                 
                 <div class="col-md-6">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Quantidade</span>
-                        <input type="text" name="quantidade" class="form-control">
+                        <input type="text" name="quantidade" th:field="*{quantidade}" class="form-control">
                     </div>
                 </div>
                 
@@ -41,7 +42,8 @@
                 <div class="col-md-6">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Valor</span>
-                        <input type="text" name="valor" class="form-control">
+                        <input type="text" name="valor" th:errorclass="is-invalid" th:field="*{valor}" onblur="tratarValor(this)" class="form-control">
+                        <div class="invalid-feedback" th:errors="*{valor}"></div>
                     </div>
                 </div>
             </div>
@@ -52,5 +54,10 @@
 
     </div>
 </body>
+<script>
+    function tratarValor(campo){
+        campo.value = campo.value.replace(",", ".")
+    }
+</script>
 
 </html>

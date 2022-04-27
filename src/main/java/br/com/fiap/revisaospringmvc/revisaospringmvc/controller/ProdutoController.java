@@ -2,9 +2,12 @@ package br.com.fiap.revisaospringmvc.revisaospringmvc.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -35,18 +38,22 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/produtos/criar")
-	public ModelAndView criar() {
+	public ModelAndView criar(ProdutoDto produto) {
 		ModelAndView modelView = new ModelAndView("produtos/criar");
 		return modelView; 
 	}
 	
 	@PostMapping("produtos")
-	public String salvar(ProdutoDto produto) {
-		Produto produtoEntity = modelMapper.map(produto, Produto.class); 
+	public ModelAndView salvar(@Valid ProdutoDto produto, BindingResult bindigResult) {
+		if(bindigResult.hasErrors()) {
+			System.out.println("TEMOS ERROS");
+			return new ModelAndView("produtos/criar");
+		}
 		
+		Produto produtoEntity = modelMapper.map(produto, Produto.class); 
 		produtoRepository.save(produtoEntity);
 		
-		return "redirect:/produtos ";
+		return new ModelAndView ("redirect:/produtos ");
 	}
 	
 }
