@@ -13,7 +13,7 @@ public class Produto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long id;
 	
 	@Column(nullable = false)
 	private String nome;
@@ -25,7 +25,7 @@ public class Produto {
 		
 	}
 	
-	public Produto(Long id, String nome, Integer quantidade, double valor) {
+	public Produto(long id, String nome, Integer quantidade, double valor) {
 		this.id = id;
 		this.nome = nome;
 		this.quantidade = quantidade;
@@ -33,10 +33,10 @@ public class Produto {
 	}
 
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getNome() {

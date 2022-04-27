@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @SpringBootApplication
-@ComponentScan({ "br.com.fiap.revisaospringmvc.revisaospringmvc.controller"})
+@ComponentScan({ "br.com.fiap.revisaospringmvc.revisaospringmvc.controller","br.com.fiap.revisaospringmvc.revisaospringmvc.config" })
 
 public class RevisaoSpringMvcApplication {
 
