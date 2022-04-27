@@ -1,17 +1,21 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha primeira página</title>
-</head>
+
+<header th:replace="~{cabecalho :: head('Home')}"></header>
+
 <body>
-    <p >Olá mundo</p>
+    <nav th:replace="~{menu :: nav}"></nav>
 
-    <p>Restart</p>
+    <div class="container">
 
-    <p>Seja bem vindo, <span th:text="${nomeUsuario }"></span></p>
+        <p >Olá mundo</p>
+
+        <p>Restart</p>
+    
+        <p>Seja bem vindo, <span th:text="${nomeUsuario }"></span></p>
+    
+    </div>
+
 
 </body>
 </html>
