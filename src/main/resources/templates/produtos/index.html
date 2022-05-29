@@ -5,6 +5,7 @@
 
 <body>
     <nav th:replace="~{menu :: nav}"></nav>
+    <span th:text="${mensagem}"></span>
     <div class="container mt-3">
         <a type="button" href="produtos/criar" class="btn btn-primary">Cadastrar produto</a>
         <h3>Vizualização de produtos</h3>
@@ -24,8 +25,8 @@
                     <td th:text="${produto.getValor()}">Valor</td>
                     <td>
                         <a th:href="@{/produtos/{produtoId}(produtoId = ${produto.id})}" class="btn btn-info">Detalhe</a>
-                        <a href="#" class="btn btn-warning">Editar</a>
-                        <a href="#" class="btn btn-danger">Deletar</a>
+                        <a th:href="@{/produtos/{produtoId}/edit(produtoId = ${produto.id})}" class="btn btn-warning">Editar</a>
+                        <a th:href="@{/produtos/{produtoId}/delete(produtoId = ${produto.id})}" class="btn btn-danger">Deletar</a>
                     </td>
                 </tr>
             </tbody>

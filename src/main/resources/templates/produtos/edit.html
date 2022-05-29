@@ -1,0 +1,54 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    
+<header th:replace="~{cabecalho :: head('Alterar produto')}"></header>
+
+<body>
+    <nav th:replace="~{menu :: nav}"></nav>
+    <div class="container mt-3">
+        <h2 class="text-center">Editar produto</h2>
+        <hr>
+        <form th:object="${produtoDto}" action=# th:action="@{/produtos/{id} (id=${produtoId})}" method="POST">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Nome</span>
+                        <input type="text" name="nome" th:errorclass="is-invalid" th:field="*{nome}" id="nome" class="form-control">
+                        <div class="invalid-feedback" th:errors="*{nome}"></div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Quantidade</span>
+                        <input type="text" name="quantidade" th:field="*{quantidade}" class="form-control">
+                    </div>
+                </div>
+                
+            </div>
+           
+
+           
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Valor</span>
+                        <input type="text" name="valor" th:errorclass="is-invalid" th:field="*{valor}" onblur="tratarValor(this)" class="form-control">
+                        <div class="invalid-feedback" th:errors="*{valor}"></div>
+                    </div>
+                </div>
+            </div>
+           
+            <input type="submit" class="btn btn-success" value="Salvar">
+        </form>
+
+
+    </div>
+</body>
+<script>
+    function tratarValor(campo){
+        campo.value = campo.value.replace(",", ".")
+    }
+</script>
+
+</html>

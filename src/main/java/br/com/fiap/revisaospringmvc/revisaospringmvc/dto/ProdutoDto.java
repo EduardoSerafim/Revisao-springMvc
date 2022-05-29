@@ -4,6 +4,8 @@ import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.fiap.revisaospringmvc.revisaospringmvc.model.Produto;
+
 public class ProdutoDto {
 
 	private long id;
@@ -52,5 +54,12 @@ public class ProdutoDto {
 
 	public void setValor(double valor) {
 		this.valor = valor;
+	}
+	
+	
+	public void fromProduto(Produto produto) {
+		this.valor= produto.getValor();
+		this.nome = produto.getNome();
+		this.quantidade= produto.getQuantidade();
 	}
 }

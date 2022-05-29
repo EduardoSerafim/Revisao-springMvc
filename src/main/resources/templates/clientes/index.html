@@ -25,8 +25,8 @@
 
                     <td>
                         <a th:href="@{/clientes/{clienteId}(clienteId = ${cliente.id})}" class="btn btn-info">Detalhe</a>
-                        <a href="#" class="btn btn-warning">Editar</a>
-                        <a href="#" class="btn btn-danger">Deletar</a>
+                        <a th:href="@{/clientes/{clienteId}/edit(clienteId = ${cliente.id})}" class="btn btn-warning">Editar</a>
+                        <a th:href="@{/clientes/{clienteId}/delete(clienteId = ${cliente.id})}" class="btn btn-danger">Deletar</a>
                     </td>
                 </tr>
             </tbody>

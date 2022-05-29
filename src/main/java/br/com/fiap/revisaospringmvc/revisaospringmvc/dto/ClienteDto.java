@@ -1,8 +1,12 @@
 package br.com.fiap.revisaospringmvc.revisaospringmvc.dto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-import com.sun.istack.NotNull;
+import br.com.fiap.revisaospringmvc.revisaospringmvc.model.Cliente;
+
+
+
 
 public class ClienteDto {
 	
@@ -48,6 +52,12 @@ public class ClienteDto {
 	}
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+	
+	public void fromCliente(Cliente cliente) {
+		this.nome = cliente.getNome();
+		this.documento = cliente.getDocumento();
+		this.endereco = cliente.getEndereco();
 	}
 	
 }
